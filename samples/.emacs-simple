@@ -1,0 +1,32 @@
+;;________________________________________________________________
+;;    Stop cursor from blinking
+;;________________________________________________________________
+
+(blink-cursor-mode 0)
+(setq x-stretch-cursor t)
+(auto-compression-mode 1)
+(setq-default visible-bell t)
+
+(set-foreground-color "white")
+(set-background-color "black")
+(add-to-list 'default-frame-alist '(background-color . "black"))
+(add-to-list 'default-frame-alist '(foreground-color . "white"))
+
+
+(defvar system-type-as-string (prin1-to-string system-type))
+(defvar on_windows_nt (string-match "windows-nt" system-type-as-string))
+(defvar on_darwin     (string-match "darwin"     system-type-as-string))
+(defvar on_gnu_linux  (string-match "gnu/linux"  system-type-as-string))
+
+
+(cond (on_darwin
+    (add-to-list 'default-frame-alist
+        '(font . "-apple-monaco-medium-r-normal--18-*-*-*-*-*-*-*"))))
+
+(cond (on_windows_nt
+    (add-to-list 'default-frame-alist
+        '(font . "Lucida Console-11:bold"))))
+
+(cond (on_gnu_linux
+    (add-to-list 'default-frame-alist
+        '(font . "9x15bold"))))

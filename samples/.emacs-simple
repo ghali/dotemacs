@@ -1,18 +1,27 @@
+;;-*-Emacs-Lisp-*-
 ;;________________________________________________________________
-;;    Stop cursor from blinking
+;;    Simple .emacs
 ;;________________________________________________________________
 
+;; Stop cursor from blinking
 (blink-cursor-mode 0)
+
+;; Enlarge cursor.
 (setq x-stretch-cursor t)
+
+;; Auto-decompress on the fly.
 (auto-compression-mode 1)
+
+;; Don't beep. Flash screen instead.
 (setq-default visible-bell t)
 
+;; Colors
 (set-foreground-color "white")
 (set-background-color "black")
 (add-to-list 'default-frame-alist '(background-color . "black"))
 (add-to-list 'default-frame-alist '(foreground-color . "white"))
 
-
+;; Fonts
 (defvar system-type-as-string (prin1-to-string system-type))
 (defvar on_windows_nt (string-match "windows-nt" system-type-as-string))
 (defvar on_darwin     (string-match "darwin"     system-type-as-string))

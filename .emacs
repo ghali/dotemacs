@@ -18,7 +18,6 @@
 (load-file "~/ghali/dotfiles/dotemacs/09-files-and-dired.el")
 (load-file "~/ghali/dotfiles/dotemacs/10-version-control.el")
 (load-file "~/ghali/dotfiles/dotemacs/11-misc-general.el")
-(load-file "~/ghali/dotfiles/dotemacs/12-private.el")
 
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
@@ -28,7 +27,17 @@
  '(csv-separators (quote ("," "	" ";")))
  '(package-selected-packages
    (quote
-    (hideshow-org po-mode ess string-inflection qml-mode winum flycheck-pkg-config with-editor highlight yaml-mode window-number web-mode-edit-element typescript-mode smooth-scrolling smooth-scroll scss-mode qt-pro-mode pov-mode markdown-mode magit lua-mode logview js-auto-beautify jinja2-mode dtrt-indent dockerfile-mode datetime color-moccur cmake-mode browse-kill-ring py-import-check ac-html ini-mode csharp-mode flycheck-lilypond epl diff-hl edbi-sqlite edbi nginx-mode markdown-preview-mode mmm-mode flycheck web-mode swift3-mode swift-mode exec-path-from-shell js2-mode json-mode tide csv-mode)))
+    (hideshow-org po-mode ess string-inflection qml-mode winum
+    flycheck-pkg-config with-editor highlight yaml-mode
+    window-number web-mode-edit-element typescript-mode
+    smooth-scrolling smooth-scroll scss-mode qt-pro-mode pov-mode
+    markdown-mode magit lua-mode logview js-auto-beautify
+    jinja2-mode dtrt-indent dockerfile-mode datetime color-moccur
+    cmake-mode browse-kill-ring py-import-check ac-html ini-mode
+    csharp-mode flycheck-lilypond epl diff-hl edbi-sqlite edbi
+    nginx-mode markdown-preview-mode mmm-mode flycheck web-mode
+    swift3-mode swift-mode exec-path-from-shell js2-mode
+    json-mode tide csv-mode)))
  '(py-use-font-lock-doc-face-p t)
  '(safe-local-variable-values
    (quote

@@ -169,6 +169,7 @@
        (list "\\.drawtool$" "drawtool")
        (list "\\.py$" "/usr/local/bin/python3")
        (list "\\.js$" "/usr/local/bin/node")
+       (list "\\.swift$" "/usr/bin/swift")
        ))
 
 ;; macOS also has: /System/Library/Frameworks/JavaScriptCore.framework/Versions/Current/Resources/jsc

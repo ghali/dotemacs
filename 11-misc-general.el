@@ -149,16 +149,21 @@
 (setq frame-title-format
       (list ""
         "%b"
-        "  |  "
-        `default-directory
-        "  |  "
-        (system-name)
-            " ("
-            system-type-as-string
-            "; Emacs "
-            emacs-version
-            ")"
-      ))
+        ))
+
+;; (setq frame-title-format
+;;       (list ""
+;;         "%b"
+;;         "  |  "
+;;         `default-directory
+;;         "  |  "
+;;         (system-name)
+;;             " ("
+;;             system-type-as-string
+;;             "; Emacs "
+;;             emacs-version
+;;             ")"
+;;       ))
 
 ;;________________________________________________________________
 ;;    Do not publish my email on Usenet
@@ -461,3 +466,10 @@ This command does the reverse of `fill-region'."
 (when (try-require 'winum)
   (winum-set-keymap-prefix (kbd "M-n"))
 )
+
+;;________________________________________________________________
+;; Accelerate buffer switching
+;;________________________________________________________________
+
+;; (ido-mode 1)
+;; (setq ido-separator "\n")

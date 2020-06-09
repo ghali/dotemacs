@@ -11,13 +11,33 @@
 ;;________________________________________________________________
 
 (require 'package)
-(add-to-list 'package-archives
-             '("MELPA Stable" . "https://stable.melpa.org/packages/") t)
-(add-to-list 'package-archives
-             '("MELPA" . "https://melpa.org/packages/") t)
-(add-to-list 'package-archives
-             '("org" . "https://orgmode.org/elpa/") t)
+
+(setq package-archives '(("elpa" . "http://tromey.com/elpa/")
+                         ("gnu" . "http://elpa.gnu.org/packages/")
+                         ("MELPA Stable" . "https://stable.melpa.org/packages/")
+                         ("org" . "https://orgmode.org/elpa/")
+                         ("marmalade" . "http://marmalade-repo.org/packages/")))
+
 (package-initialize)
+
+;;________________________________________________________________
+;;    package-install a list
+;;    https://stackoverflow.com/a/10093312
+;;________________________________________________________________
+
+;; Package list
+;; missing: (setq package-list '(ess typescript-mode markdown-mode logview ac-html markdown-preview-mode tide))
+(setq package-list '(eslint-fix hideshow-org po-mode string-inflection qml-mode winum flycheck-pkg-config with-editor highlight yaml-mode window-number web-mode-edit-element smooth-scrolling smooth-scroll scss-mode qt-pro-mode pov-mode magit lua-mode js-auto-beautify jinja2-mode dtrt-indent dockerfile-mode datetime color-moccur cmake-mode browse-kill-ring py-import-check ini-mode csharp-mode flycheck-lilypond epl diff-hl edbi-sqlite edbi nginx-mode mmm-mode flycheck web-mode swift3-mode swift-mode exec-path-from-shell js2-mode json-mode csv-mode))
+;; TODO: Avoid duplication with main .emacs file.
+
+; fetch the list of packages available 
+(unless package-archive-contents
+  (package-refresh-contents))
+
+; install the missing packages
+(dolist (package package-list)
+  (unless (package-installed-p package)
+    (package-install package)))
 
 ;;________________________________________________________________
 ;;    Determine where we are.

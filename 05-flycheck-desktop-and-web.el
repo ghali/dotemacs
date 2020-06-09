@@ -40,8 +40,9 @@
 ;; ;;================================================================
 ;; ;; ================eslint================
 ;; ;; use web-mode for .jsx files
+;; (add-to-list 'auto-mode-alist '("\\.js$" . web-mode))
 ;; (add-to-list 'auto-mode-alist '("\\.jsx$" . web-mode))
-;;
+;; 
 ;; ;; disable jshint since we prefer eslint checking
 ;; (setq-default flycheck-disabled-checkers
 ;;   (append flycheck-disabled-checkers

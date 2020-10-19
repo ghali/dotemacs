@@ -6,16 +6,22 @@
 ;;****************************************************************
 ;;****************************************************************
 
-(defvar sg-on_windows_nt)
-(defvar sg-on_darwin)
-(defvar sg-on_gnu_linux)
-(defvar sg-on_cygwin)
+(defvar on_windows_nt)
+(defvar on_darwin)
+(defvar on_gnu_linux)
+(defvar on_cygwin)
+
+;;________________________________________________________________
+;;    "ls does not support --dired; see ‘dired-use-ls-dired’ for more details."
+;;________________________________________________________________
+(cond (on_darwin
+       (setq dired-use-ls-dired nil)))
 
 ;;________________________________________________________________
 ;;    Some dired settings
 ;;________________________________________________________________
 
-(cond (sg-on_windows_nt
+(cond (on_windows_nt
        (when (try-require 'nw-win)
          ()
          )
@@ -38,7 +44,7 @@
 ;;    Keys
 ;;________________________________________________________________
 
-(cond (sg-on_darwin
+(cond (on_darwin
         (require 'dired)
 
         (define-key dired-mode-map "o" 'dired-open-mac)
@@ -88,6 +94,7 @@
                                    "\\.php$\\|"
                                    "\\.ipp$\\|"
                                    "\\.py$\\|"
+                                   "\\.swift$\\|"
                                    "\\.fsh$\\|"
                                    "\\.vsh$\\|"
                                    "\\.awk$\\|"
@@ -186,7 +193,7 @@
 ;;________________________________
 ;;    ****Messes up with search in dired marked files.****
 ;;________________________________
-;; (cond (sg-on_darwin
+;; (cond (on_darwin
 ;;        (setq ls-lisp-use-insert-directory-program nil)
 ;;        (try-require 'ls-lisp)
 ;; ))

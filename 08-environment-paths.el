@@ -6,10 +6,10 @@
 ;;****************************************************************
 ;;****************************************************************
 
-(defvar sg-on_windows_nt)
-(defvar sg-on_darwin)
-(defvar sg-on_gnu_linux)
-(defvar sg-on_cygwin)
+(defvar on_windows_nt)
+(defvar on_darwin)
+(defvar on_gnu_linux)
+(defvar on_cygwin)
 
 ;;________________________________________________________________
 ;;    Info
@@ -19,7 +19,7 @@
 ;; Adjust the info path.
 ;;________________________________
 
-(cond (sg-on_windows_nt
+(cond (on_windows_nt
        (setq Info-directory-list
              (cons 
               (expand-file-name "C:/cygwin17/usr/share/info/")
@@ -30,7 +30,7 @@
 ;; setenv INFOPATH /usr/gnu/info:/usr/local/info:/usr/TeX/info
 ;; /usr/share/info/
 
-;;(cond (sg-on_darwin
+;;(cond (on_darwin
 ;;       (push "/usr/local/share/info" Info-directory-list)
 ;;))
 
@@ -60,15 +60,15 @@
                 "/usr/local/bin"
                 "/Applications/Ipe.app/Contents/MacOS/ipe"
                 "/usr/local/ghostscript-8.71-macosx"
-                "/usr/local/Qt/5.7/clang_64/bin/"
+                "/usr/local/Qt/5.15.1/clang_64/bin/"
                 "/opt/local/bin")))
 
-(cond (sg-on_darwin
+(cond (on_darwin
        (require 'exec-path-from-shell)
        (exec-path-from-shell-initialize)
 
        (setenv "DYLD_LIBRARY_PATH" "/usr/local/glow/glow_src/:/usr/local/ipe/build/lib/")
-       (setenv "PKG_CONFIG_PATH" "/usr/local/Trolltech/Qt-4.8.0/lib/pkgconfig")
+       (setenv "PKG_CONFIG_PATH" "/usr/local/Qt/5.15.1/clang_64/lib/pkgconfig")
 
        ;; (setenv "ANDROID_NDK_ROOT" "/usr/local/android-ndk-r9d")
        ;; (setenv "ANDROID_SDK_ROOT" "/usr/local/adt-bundle-mac-x86_64/sdk")
@@ -85,7 +85,7 @@
        (setenv "PYTHONIOENCODING" "utf_8")
 ))
 
-(cond (sg-on_windows_nt
+(cond (on_windows_nt
        (setenv "INCLUDE"
            (concat "C:/Program Files/Microsoft Visual Studio 9.0/VC/ATLMFC/INCLUDE;"
                        "C:/Program Files/Microsoft Visual Studio 9.0/VC/INCLUDE;"
@@ -114,7 +114,7 @@
                        "C:/Program Files/Common Files/OTG;C:/cygwin17/bin"))
 ))
 
-(cond (sg-on_gnu_linux
+(cond (on_gnu_linux
        (setenv "PATH"
            (concat "/usr/kerberos/bin:"
                        "/usr/local/bin:"
@@ -129,7 +129,7 @@
 ;;    eshell path
 ;;________________________________________________________________
 
-(cond (sg-on_windows_nt
+(cond (on_windows_nt
        (add-hook 'eshell-mode-hook
                  '(lambda nil
                     (eshell/export "EPOCROOT=\\Paragon\\")
@@ -154,7 +154,7 @@
                  )
        ))
 
-(cond (sg-on_darwin
+(cond (on_darwin
        (add-hook 'eshell-mode-hook
          '(lambda nil
             (eshell/export "EPOCROOT=\\Paragon\\")
@@ -175,7 +175,7 @@
 ;;    Qt & Visual Studio
 ;;________________________________________________________________
 
-(cond (sg-on_windows_nt
+(cond (on_windows_nt
        (setenv "QTDIR" "C:\Qt\4.7.1")
        (setenv "QMAKESPEC" "win32-msvc2008")
 ))
@@ -190,7 +190,7 @@
 ;;________________________________________________________________
 
 ;; The executable is Cygwin's, but we can use it on bare windows.
-;; (cond (sg-on_windows_nt
+;; (cond (on_windows_nt
 ;;        (require 'psvn)
 ;;        (setq svn-status-svn-executable "C:/cygwin17/bin/svn.exe")
 ;; ))
@@ -208,7 +208,7 @@
 ;; Alternatively, add Cygwin17/bin to the windows-wide path
 ;; (Control Panel \ System \ Advanced)
 (defvar ediff-diff-program)
-(cond (sg-on_windows_nt
+(cond (on_windows_nt
        (setq ediff-diff-program "C:/cygwin17/bin/diff.exe")
 ))
 
@@ -226,6 +226,6 @@
 ;;       Consult the user's guide for more details about POSIX paths:
 ;;         http://cygwin.com/cygwin-ug-net/using.html#using-pathnames
 
-(cond (sg-on_windows_nt
+(cond (on_windows_nt
        (setenv "CYGWIN" "nodosfilewarning")
 ))

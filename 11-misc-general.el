@@ -6,10 +6,10 @@
 ;;****************************************************************
 ;;****************************************************************
 
-(defvar sg-on_windows_nt)
-(defvar sg-on_darwin)
-(defvar sg-on_gnu_linux)
-(defvar sg-on_cygwin)
+(defvar on_windows_nt)
+(defvar on_darwin)
+(defvar on_gnu_linux)
+(defvar on_cygwin)
 
 ;;________________________________________________________________
 ;;    Calendar/ Holidays
@@ -62,7 +62,7 @@
 ;;    I hardly ever use the menu bar or the tool bar
 ;;________________________________________________________________
 ;; Asking for no menu bar on OS X/Darwin is harmless, but also futile.
-(cond (sg-on_windows_nt
+(cond (on_windows_nt
        (menu-bar-mode -1)
 ))
 (when window-system
@@ -109,7 +109,7 @@
 ;;    Put all .save's in one place
 ;;________________________________________________________________
 
-(cond (sg-on_darwin
+(cond (on_darwin
        (setq auto-save-list-file-prefix "~/ghaliweekly/misc/.save/.saves-" )
 ))
 
@@ -121,11 +121,11 @@
 ;; MacPorts ('port install texlive') installs in /opt/local.
 ;; Avoid having a duplicate tex installation.
 
-(cond (sg-on_darwin
-       (setenv "TEXINPUTS"
-               ".:/usr/local/texlive/2019/texmf-dist/tex//:"
-               "$HOME/ghaliweekly/latex/styles//")
-))
+;; (cond (on_darwin
+;;        (setenv "TEXINPUTS"
+;;                ".:/usr/local/texlive/2020/texmf-dist/tex//:"
+;;                "$HOME/ghaliweekly/latex/styles//")
+;; ))
 
 ;; If I return to installing LaTeX via MacPorts, reset to:
 ;;     (setenv "TEXINPUTS" ".:/opt/local/share/texmf-dist/tex//")
@@ -185,7 +185,7 @@
 ;; Initial loading
 ;;________________
 
-;; (cond (sg-on_darwin
+;; (cond (on_darwin
 ;;        (find-file "/Users/me/ghali/gcb/tex/book2/chaps")
 ;; ))
 
@@ -200,8 +200,8 @@
 ;;    Display long lines by truncating them.
 ;;________________________________________________________________
 
-(cond (sg-on_windows_nt   (set-default 'truncate-lines   t) ))
-(cond (sg-on_darwin       (set-default 'truncate-lines nil) ))
+(cond (on_windows_nt   (set-default 'truncate-lines   t) ))
+(cond (on_darwin       (set-default 'truncate-lines nil) ))
 
 ;;________________________________________________________________
 ;;    But do not truncate in compilation mode.

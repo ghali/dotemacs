@@ -6,10 +6,10 @@
 ;;****************************************************************
 ;;****************************************************************
 
-(defvar sg-on_windows_nt)
-(defvar sg-on_darwin)
-(defvar sg-on_gnu_linux)
-(defvar sg-on_cygwin)
+(defvar on_windows_nt)
+(defvar on_darwin)
+(defvar on_gnu_linux)
+(defvar on_cygwin)
 
 ;;________________________________________________________________
 ;; XML indent
@@ -77,18 +77,21 @@ by using nxml's indentation rules."
      ;; doesn't work. investigate later.
      ;; (add-to-list 'web-mode-comment-formats '("javascript" . "//"))
 
-     (setq web-mode-script-padding 4)
-     (setq web-mode-style-padding 4)
-     (setq web-mode-block-padding 4)
-
-     (setq web-mode-markup-indent-offset 4)
-     (setq web-mode-css-indent-offset 4)
-     (setq web-mode-code-indent-offset 4)
-     (setq web-mode-attr-indent-offset 4)
-     (setq web-mode-attr-value-indent-offset 4)
-     (setq web-mode-indentless-elements 4)
-     (setq web-mode-markup-indent-offset 4)
-     (setq web-mode-sql-indent-offset 4)
+     ;;----------------------------------------------------------------
+     ;; debug while reintroducing:
+     ;;----------------------------------------------------------------
+     ;; (setq web-mode-script-padding 4)
+     ;; (setq web-mode-style-padding 4)
+     ;; (setq web-mode-block-padding 4)
+     ;; 
+     ;; (setq web-mode-markup-indent-offset 4)
+     ;; (setq web-mode-css-indent-offset 4)
+     ;; (setq web-mode-code-indent-offset 4)
+     ;; (setq web-mode-attr-indent-offset 4)
+     ;; (setq web-mode-attr-value-indent-offset 4)
+     ;; (setq web-mode-indentless-elements 4)
+     ;; (setq web-mode-markup-indent-offset 4)
+     ;; (setq web-mode-sql-indent-offset 4)
 
      ;; http://emacs.stackexchange.com/a/17015/
      (setq web-mode-engines-alist
@@ -225,7 +228,7 @@ by using nxml's indentation rules."
 ;; useful because it makes it possible to 
 ;;    M-x htmlfontify-copy-and-link-dir
 
-(cond (sg-on_darwin
+(cond (on_darwin
        (when (< emacs-major-version 23)
          (setq load-path (cons "~/ghali/dotfiles/emacs/elisp/htmlfontify" load-path))
          (when (try-require 'htmlfontify)

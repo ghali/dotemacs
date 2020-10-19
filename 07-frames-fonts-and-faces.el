@@ -6,10 +6,10 @@
 ;;****************************************************************
 ;;****************************************************************
 
-(defvar sg-on_windows_nt)
-(defvar sg-on_darwin)
-(defvar sg-on_gnu_linux)
-(defvar sg-on_cygwin)
+(defvar on_windows_nt)
+(defvar on_darwin)
+(defvar on_gnu_linux)
+(defvar on_cygwin)
 
 ;;________________________________________________________________
 ;;    Settings for default frames (make-frame-command, C-x 5 2)
@@ -39,7 +39,7 @@
 ;; (add-to-list 'default-frame-alist '(width . 235)
 ;; (add-to-list 'default-frame-alist '(height . 63)
 
-(cond (sg-on_windows_nt
+(cond (on_windows_nt
        (add-to-list 'default-frame-alist '(font . "Lucida Console-11:bold"))
        (add-to-list 'default-frame-alist '(height . 64))
        (add-to-list 'default-frame-alist '(width . 120))
@@ -52,7 +52,7 @@
 ;;   -      Decrease the default face height by one step
 ;;   0      Reset the default face height to the global default
 
-(cond (sg-on_darwin
+(cond (on_darwin
 ;;       (add-to-list 'default-frame-alist '(font . "-apple-monaco-medium-r-normal--24-*-*-*-*-*-*-*"))
         (add-to-list 'default-frame-alist '(font . "-apple-monaco-medium-r-normal--18-*-*-*-*-*-*-*"))
 ;;       (add-to-list 'default-frame-alist '(font . "-apple-monaco-medium-r-normal--14-*-*-*-*-*-*-*"))
@@ -65,12 +65,12 @@
 ;; (set-frame-font "-apple-monaco-medium-r-normal--24-*-*-*-*-*-*-*")
 ;; (set-frame-font "-apple-monaco-medium-r-normal--18-*-*-*-*-*-*-*")
 
-(cond (sg-on_gnu_linux
+(cond (on_gnu_linux
        (add-to-list 'default-frame-alist '(font . "9x15bold"))
        )
 )
 
-;; (cond (sg-on_cygwin
+;; (cond (on_cygwin
 ;;        (set-default-font "9x15bold")
 ;; ))
 

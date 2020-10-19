@@ -6,10 +6,10 @@
 ;;****************************************************************
 ;;****************************************************************
 
-(defvar sg-on_windows_nt)
-(defvar sg-on_darwin)
-(defvar sg-on_gnu_linux)
-(defvar sg-on_cygwin)
+(defvar on_windows_nt)
+(defvar on_darwin)
+(defvar on_gnu_linux)
+(defvar on_cygwin)
 
 ;;________________________________________________________________
 ;;    Settings for compilation scrolling
@@ -28,10 +28,10 @@
 
 ;; default on unixes is 'make -t'
 
-(cond (sg-on_windows_nt    (setq compile-command "nmake") ))
-;; (cond (sg-on_darwin        (setq compile-command "qmake; make ") ))
-(cond (sg-on_darwin        (setq compile-command "make ") ))
-(cond (sg-on_gnu_linux     (setq compile-command "make ") ))
+(cond (on_windows_nt    (setq compile-command "nmake") ))
+;; (cond (on_darwin        (setq compile-command "qmake; make ") ))
+(cond (on_darwin        (setq compile-command "make ") ))
+(cond (on_gnu_linux     (setq compile-command "make ") ))
 
 ;;________________________________________________________________
 ;;    Compile without pressing enter to confirm command
@@ -61,6 +61,8 @@
 (setq auto-mode-alist (cons '("\\.h\\'" . c++-mode) auto-mode-alist))
 (setq auto-mode-alist (cons '("\\.fx\\'" . c++-mode) auto-mode-alist))
 (setq auto-mode-alist (cons '("\\.ipp\\'" . c++-mode) auto-mode-alist))
+(setq auto-mode-alist (cons '("\\.cu\\'" . c++-mode) auto-mode-alist))
+(setq auto-mode-alist (cons '("\\.cuh\\'" . c++-mode) auto-mode-alist))
 
 ;;________________________________
 ;;    c-mode
@@ -143,7 +145,7 @@
 ;;    Boost jam-mode
 ;;________________________________
 
-(cond (sg-on_windows_nt
+(cond (on_windows_nt
        (require 'jam-mode)
        (add-to-list 'auto-mode-alist '("\\.jam$" . jam-mode))
        (add-to-list 'auto-mode-alist '("^Jamfile$\\|^Jamfile\\.v2$" . jam-mode))
@@ -154,7 +156,7 @@
 ;;________________________________
 ;; Do not predicate dos-mode on being on Windows.
 ;; Enable editing batch files elsewhere.
-;; (cond (sg-on_windows_nt
+;; (cond (on_windows_nt
        (autoload 'dos-mode "dos" "Edit Dos scripts." t)
        (add-to-list 'auto-mode-alist '("\\.bat$" . dos-mode))
 ;; ))
@@ -187,7 +189,7 @@
 
 ;; Extracted from:
 ;; /Applications/LilyPond.app/Contents/Resources/share/emacs/site-lisp/lilypond-init.el
-(cond (sg-on_darwin
+(cond (on_darwin
 
        (setq load-path (append (list (expand-file-name "/Applications/LilyPond 2.app/Contents/Resources/share/emacs/site-lisp")) load-path))
 
@@ -397,7 +399,7 @@
 ;;________________________________________________________________
 
 ;; https://github.com/yoshiki/yaml-mode
-(cond (sg-on_darwin
+(cond (on_darwin
        (when (try-require 'yaml-mode)
          (add-to-list 'auto-mode-alist '("\\.yaml$" . yaml-mode))
          )

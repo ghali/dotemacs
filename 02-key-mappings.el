@@ -6,10 +6,10 @@
 ;;****************************************************************
 ;;****************************************************************
 
-(defvar sg-on_windows_nt)
-(defvar sg-on_darwin)
-(defvar sg-on_gnu_linux)
-(defvar sg-on_cygwin)
+(defvar on_windows_nt)
+(defvar on_darwin)
+(defvar on_gnu_linux)
+(defvar on_cygwin)
 
 ;;________________________________________________________________
 ;;    Basic Keybindings
@@ -49,7 +49,7 @@
 (defun up-medium () (interactive) (scroll-up 3))
 (defun down-medium () (interactive) (scroll-down 3))
 
-(cond (sg-on_windows_nt
+(cond (on_windows_nt
        ;; xemacs won't like the following:
        (global-set-key [mouse-4] 'down-medium)
        (global-set-key [mouse-5] 'up-medium)
@@ -60,7 +60,7 @@
 
 ;; The trackpad on macOS generates too many events.
 ;; Scroll by 1 unless shifted.
-(cond (sg-on_darwin
+(cond (on_darwin
        (global-set-key [mouse-4] 'down-slow)
        (global-set-key [mouse-5] 'up-slow)
 
@@ -68,7 +68,7 @@
        (global-set-key [S-mouse-5] 'up-medium)
 ))
 
-(cond (sg-on_gnu_linux
+(cond (on_gnu_linux
        (global-set-key [mouse-4] 'down-medium)
        (global-set-key [mouse-5] 'up-medium)
 
@@ -86,7 +86,7 @@
 ;; (setq scroll-conservatively 1)
 
 ;; The default value is 5, which is too fast on a MacBook or a trackpad; reduce:
-(when (and sg-on_darwin window-system)
+(when (and on_darwin window-system)
   (mouse-wheel-mode 1)
   (setq mouse-wheel-scroll-amount '(1 ((shift) . 1) ((control) . nil)))
   (setq mouse-wheel-progressive-speed 'f)
@@ -216,7 +216,7 @@
 (defvar mac-option-key-is-meta)
 (defvar mac-command-key-is-meta)
 
-(cond (sg-on_darwin
+(cond (on_darwin
        (when (>= emacs-major-version 23)
          (setq mac-option-key-is-meta nil)
          (setq mac-command-key-is-meta t)

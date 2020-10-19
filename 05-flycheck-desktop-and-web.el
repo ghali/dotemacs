@@ -2,14 +2,15 @@
 ;;****************************************************************
 ;;****************************************************************
 ;;****************           FLYCHECK             ****************
+;;****************        (and flyspell)          ****************
 ;;****************************************************************
 ;;****************************************************************
 ;;****************************************************************
 
-(defvar sg-on_windows_nt)
-(defvar sg-on_darwin)
-(defvar sg-on_gnu_linux)
-(defvar sg-on_cygwin)
+(defvar on_windows_nt)
+(defvar on_darwin)
+(defvar on_gnu_linux)
+(defvar on_cygwin)
 
 ;;________________________________
 ;;    flycheck
@@ -65,3 +66,22 @@
 ;; (when (memq window-system '(mac ns))
 ;;   (exec-path-from-shell-initialize))
 ;; ;;================================================================
+
+;;________________________________
+;;    flyspell
+;;________________________________
+
+(add-hook 'markdown-mode-hook 'flyspell-mode)
+(add-hook 'text-mode-hook 'flyspell-mode)
+(add-hook 'latex-mode-hook 'flyspell-mode)
+
+;;________________________________
+;;    C++11
+;;________________________________
+
+(add-hook 'c++-mode-hook
+          (lambda () (setq flycheck-gcc-language-standard "c++11")))
+
+(add-hook 'c++-mode-hook
+          (lambda () (setq flycheck-clang-include-path
+                           (list (expand-file-name "/usr/local/Qt/5.15.1/clang_64/lib/")))))

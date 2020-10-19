@@ -45,19 +45,19 @@
 
 (defvar system-type-as-string (prin1-to-string system-type))
 
-(defvar sg-on_windows_nt (string-match "windows-nt" system-type-as-string))
-(defvar sg-on_darwin     (string-match "darwin"     system-type-as-string))
-(defvar sg-on_gnu_linux  (string-match "gnu/linux"  system-type-as-string))
-(defvar sg-on_cygwin     (string-match "cygwin"     system-type-as-string))
+(defvar on_windows_nt (string-match "windows-nt" system-type-as-string))
+(defvar on_darwin     (string-match "darwin"     system-type-as-string))
+(defvar on_gnu_linux  (string-match "gnu/linux"  system-type-as-string))
+(defvar on_cygwin     (string-match "cygwin"     system-type-as-string))
 
 ;;________________________________________________________________
 ;;    Set the elisp path.
 ;;________________________________________________________________
 
-(cond (sg-on_darwin      (setq load-path (cons "~/ghali/dotfiles/emacs/elisp" load-path)) ))
-(cond (sg-on_windows_nt  (setq load-path (cons "~/ghali/dotfiles/emacs/elisp" load-path)) ))
-(cond (sg-on_gnu_linux   (setq load-path (cons "~/elisp"             load-path)) ))
-(cond (sg-on_cygwin      (setq load-path (cons "/cygdrive/h/elisp"   load-path)) ))
+(cond (on_darwin      (setq load-path (cons "~/ghali/dotfiles/emacs/elisp" load-path)) ))
+(cond (on_windows_nt  (setq load-path (cons "~/ghali/dotfiles/emacs/elisp" load-path)) ))
+(cond (on_gnu_linux   (setq load-path (cons "~/elisp"             load-path)) ))
+(cond (on_cygwin      (setq load-path (cons "/cygdrive/h/elisp"   load-path)) ))
 
 ;;________________________________________________________________
 ;;    Stop cursor from blinking
@@ -105,3 +105,9 @@ of an error, just add the package to a list of missing packages."
 ;;________________________________________________________________
 
 (setq-default visible-bell t)
+
+;;________________________________________________________________
+;;    Disable "Package cl is deprecated" warnings.
+;;________________________________________________________________
+;; https://github.com/kiwanami/emacs-epc/issues/35
+(setq byte-compile-warnings '(cl-functions))

@@ -274,6 +274,8 @@
 (add-hook 'html-mode-hook      (lambda () (hs-minor-mode 1)) )
 (add-hook 'jinja2-mode-hook    (lambda () (hs-minor-mode 1)) )
 (add-hook 'qml-mode-hook       (lambda () (hs-minor-mode 1)) )
+(add-hook 'swift-mode-hook     (lambda () (hs-minor-mode 1)) )
+
 ;; (add-hook 'css-mode-hook       (lambda () (hs-minor-mode 1)) )
 ;; (add-hook 'lua-mode-hook 'hs-minor-mode)
 

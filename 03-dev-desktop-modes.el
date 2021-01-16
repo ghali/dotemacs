@@ -141,6 +141,8 @@
 (setq auto-mode-alist (cons '("\\.lua$" . lua-mode) auto-mode-alist))
 (autoload 'lua-mode "lua-mode" "Lua editing mode." t)
 
+(add-to-list 'interpreter-mode-alist '("lua" . lua-mode))
+
 ;;________________________________
 ;;    Boost jam-mode
 ;;________________________________
@@ -190,8 +192,7 @@
 ;; Extracted from:
 ;; /Applications/LilyPond.app/Contents/Resources/share/emacs/site-lisp/lilypond-init.el
 (cond (on_darwin
-
-       (setq load-path (append (list (expand-file-name "/Applications/LilyPond 2.app/Contents/Resources/share/emacs/site-lisp")) load-path))
+       (setq load-path (append (list (expand-file-name "/Applications/LilyPond.app/Contents/Resources/share/emacs/site-lisp")) load-path))
 
        (autoload 'LilyPond-mode "lilypond-mode" "LilyPond Editing Mode" t)
        (add-to-list 'auto-mode-alist '("\\.ly$" . LilyPond-mode))
@@ -453,3 +454,35 @@
 ;; Ref: https://raw.githubusercontent.com/doublep/logview/master/logview.el
 ;;================================================================
 (try-require 'logview)
+
+
+;;________________________________________________________________
+;;    lsp-dart
+;;________________________________________________________________
+;; https://github.com/emacs-lsp/lsp-dart
+;; Install use-package
+(condition-case nil
+    (require 'use-package)
+  (file-error
+   (require 'package)
+   (add-to-list 'package-archives '("melpa" . "http://melpa.org/packages/"))
+   (package-initialize)
+   (package-refresh-contents)
+   (package-install 'use-package)
+   (require 'use-package)))
+
+(use-package lsp-mode :ensure t)
+(use-package lsp-dart
+  :ensure t
+  :hook (dart-mode . lsp))
+
+;; Optional packages
+(use-package projectile :ensure t) ;; project management
+(use-package yasnippet
+  :ensure t
+  :config (yas-global-mode)) ;; snipets
+(use-package lsp-ui :ensure t) ;; UI for LSP
+(use-package company :ensure t) ;; Auto-complete
+
+;; Optional Flutter packages
+(use-package hover :ensure t) ;; run app from desktop without emulator

@@ -18,6 +18,9 @@
                          ("org" . "https://orgmode.org/elpa/")
                          ("marmalade" . "http://marmalade-repo.org/packages/")))
 
+;; Adding for (just?) lua-mode:
+(add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/") t)
+
 (package-initialize)
 
 ;;________________________________________________________________

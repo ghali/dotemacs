@@ -33,11 +33,11 @@
 ;;    Settings for initial frame
 ;;________________________________________________________________
 
-(add-to-list 'initial-frame-alist '(top . 1))
+(add-to-list 'initial-frame-alist '(top . 200))
 (add-to-list 'initial-frame-alist '(left . 0))
 
-;; (add-to-list 'default-frame-alist '(width . 235)
-;; (add-to-list 'default-frame-alist '(height . 63)
+(add-to-list 'default-frame-alist '(top . 200))
+(add-to-list 'default-frame-alist '(left . 0))
 
 (cond (on_windows_nt
        (add-to-list 'default-frame-alist '(font . "Lucida Console-11:bold"))
@@ -53,8 +53,7 @@
 ;;   0      Reset the default face height to the global default
 
 (cond (on_darwin
-;;       (add-to-list 'default-frame-alist '(font . "-apple-monaco-medium-r-normal--24-*-*-*-*-*-*-*"))
-        (add-to-list 'default-frame-alist '(font . "-apple-monaco-medium-r-normal--18-*-*-*-*-*-*-*"))
+       (add-to-list 'default-frame-alist '(font . "-apple-monaco-medium-r-normal--18-*-*-*-*-*-*-*"))
 ;;       (add-to-list 'default-frame-alist '(font . "-apple-monaco-medium-r-normal--14-*-*-*-*-*-*-*"))
        ;; (add-to-list 'default-frame-alist '(width . 130))
        ;; (add-to-list 'default-frame-alist '(height . 42))
@@ -78,7 +77,7 @@
 ;; Position all frames at 0,0
 ;;________________________________
 
-(set-frame-position (selected-frame) 0 0)
+(set-frame-position (selected-frame) 0 200)
 
 ;; (add-hook 'after-make-frame-functions
 ;;           '(lambda (f)
@@ -113,10 +112,10 @@
 ;; (add-to-list 'default-frame-alist '(width . 171))
 ;; a(add-to-list 'default-frame-alist '(height . 47))
 
-(add-to-list 'initial-frame-alist '(width . 171))
-(add-to-list 'initial-frame-alist '(height . 46))
-(add-to-list 'default-frame-alist '(width . 171))
-(add-to-list 'default-frame-alist '(height . 46))
+(add-to-list 'initial-frame-alist '(width . 134))
+(add-to-list 'initial-frame-alist '(height . 45))
+(add-to-list 'default-frame-alist '(width . 134))
+(add-to-list 'default-frame-alist '(height . 45))
 
 ;; (add-to-list 'initial-frame-alist '(fullscreen . maximized))
 ;; (add-to-list 'default-frame-alist '(fullscreen . maximized))

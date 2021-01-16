@@ -54,10 +54,13 @@
 
 (setq shell-file-name "bash")
 
+
+
+;; "/usr/texbin"
+;; "/usr/local/bin"
 (setq exec-path
       (append exec-path
-              '("/usr/texbin"
-                "/usr/local/bin"
+              '("/usr/local/texlive/2020/bin/x86_64-darwin//pdflatex"
                 "/Applications/Ipe.app/Contents/MacOS/ipe"
                 "/usr/local/ghostscript-8.71-macosx"
                 "/usr/local/Qt/5.15.1/clang_64/bin/"
